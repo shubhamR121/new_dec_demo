@@ -1,0 +1,48 @@
+<%= form_with model: @post do |f| %>
+	<p>
+		<%= f.label :name %><br>
+		<%= select_tag "post[name]", options_for_select(Post.all.map { |post| [post.name]}, @post.name)  %>
+	</p>
+	<p>
+  	<%= f.label "Get Email" %> <br />
+  	<%= f.check_box :send_email %> <br />
+	</p>
+
+
+	<p>
+  	<%= f.label "select" %> <br />
+  	<%= f.select :name, options_from_collection_for_select(Post.all, :id, :name, @post.id), prompt: "select" %> <br />
+	</p>
+
+	<%= f.submit %>
+	<%#= %>
+
+<% end %>
+
+<div id = "draggable" class = "ui-widget-content">
+   <p>Drag me !!!</p>
+</div>
+
+
+<style type="text/css">
+	.ui-widget-content {
+    /* left: 45px; */
+    position: relative;
+    /* left: 46px; */
+    /* padding: 49px 112px 37px 10px; */
+    margin: 15px 960px 56px 179px;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function(draggable) {
+	    $('#draggable').draggable();
+	    $("body").click(function(e){
+	    	$("#draggable").css({
+	    		position: 'relative',
+	    		left: e.pageX,
+	    		top: e.pageY
+	    	})
+	    })
+	});
+</script>

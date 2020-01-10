@@ -1,0 +1,94 @@
+<style type="text/css">
+
+</style>
+
+<nav class="navbar navbar-inverse">
+  <div class="">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+
+	    <ul class="nav navbar-nav navbar-right">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">Page 1</a></li>
+	      <li><a href="#">Page 2</a></li>
+	      <li><a href="#">Page 3</a></li>
+	    </ul>
+    </div>
+		<ul class="nav navbar-nav navbar-right">
+			<% if user_signed_in? %>
+			  Logged in as <strong><%= current_user.email %></strong>.
+			  <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> |
+			  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+			<% else %>
+			  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+			  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+			<% end %>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+		<div class="jumbotron col-lg-12">
+			<% @posts.each do |post| %>
+				<%= post.id %>
+				<%= post.name %>
+				<%# if can? :show, post %>
+				<%= link_to "show", post_path(post) %>
+				<%# end %>
+			<% end %>
+		</div>
+</div>  
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+	        <div class="jumbotron">
+			      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	        </div>
+        </div>
+        <div class="col-md-6">
+	        <div class="jumbotron">
+			      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	        </div>
+        </div>
+  	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<% @posts.each do |post| %>
+		  <div class="col-sm-4">
+		    <div class="card border-light">
+		    	<div class="card-header"><%= post.id %></div>
+		      <div class="card-body">
+		        <h5 class="card-title"><%= post.name %></h5>
+		        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		        <%= link_to "show", post_path(post), class: "btn btn-success" %>
+		      </div>
+		    </div>
+		  </div>
+	  <% end %>
+	</div>
+</div>
+
+<% session[:current_user_id] = current_user.id %>
+
+<%= render "footer/footer.html.erb" %>
+<div id="show_post"></div>
+
+<script type="text/javascript">
+	$(".show").click(function(){
+		console.log(this)
+		href = $(this).attr('href');
+		$.ajax({
+		  url: href,
+		  method: 'GET',
+		  data: 'twitterUsername=jquery4u'
+		});
+	});
+</script>
+<!-- <ActionController::Parameters {"twitterUsername"=>"jquery4u", "controller"=>"posts", "action"=>"show", "id"=>"1"} permitted: false>
+ -->
