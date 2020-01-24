@@ -1,11 +1,11 @@
 <%= form_with model: @post do |f| %>
 	<p>
 		<%= f.label :name %><br>
-		<%= f.select :name, options_for_select(Post.all.map { |post| [post.name]} ) %>
+		<%= f.select :name, options_for_select(Post.all.map { |post| [post.name]}),{}, {id: "test"} %>
 	</p>
 	<p>
-  	<%= f.label "Get Email" %> <br />
-  	<%= f.check_box :send_email %> <br />
+  	<%= f.label "title" %> <br />
+  	<%= f.text_field :title %> <br />
 	</p>
 
 	<p>
@@ -17,3 +17,4 @@
 	<%#= %>
 
 <% end %>
+

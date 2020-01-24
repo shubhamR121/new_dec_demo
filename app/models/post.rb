@@ -2,6 +2,8 @@ class Post < ApplicationRecord
 	# attr_reader :name
 	has_many :comments
 
+	validates_presence_of :name
+
 	before_create :capitalize_name, if: -> { check_name && check_length }
 	before_save :check_object
 	def capitalize_name
@@ -9,17 +11,17 @@ class Post < ApplicationRecord
 	end
 
 	def check_name
-		byebug
+		# byebug
 		self.name == "post 1"
 	end
 
 	def check_length
-		byebug
+		# byebug
 		 self.name.split.count == 2
 	end
 
 	def check_object
-		byebug
+		# byebug
 	end
 
 	# def initialize(attributes={})

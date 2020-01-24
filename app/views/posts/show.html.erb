@@ -1,1 +1,12 @@
-<%= @post.name %>
+<p class="post"><%= @post.name %></p>
+
+<% @post.comments.each do |cmt| %>
+	<p class="show">
+		<%= cmt.name %>
+		<% if cmt.id.present? %>
+			<%= link_to 'show', comment_path(cmt) %> 
+		<% end %>	
+	</p>
+<% end %>
+<%= link_to "delete", post_path(@post), method: 'delete' %>
+<%= render 'comments/form' %>

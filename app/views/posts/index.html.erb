@@ -1,34 +1,234 @@
+<script type="text/javascript">
+	function myFunction() {
+    var x = document.getElementById("menu-mob");
+    if (x.style.display === "none") {
+      x.style.display = "flex";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
 <style type="text/css">
 
+.navbar {
+    display: flex;
+    flex-direction: row;
+    min-height: 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.logo {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 20px;
+    width: 30%;
+    height: 100%;
+}
+.logo-image {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 50px;
+    width: 200px;
+    background-color: #A0A0A0;
+}
+.dummyimage {
+    order: 1;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+
+}
+.menu {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 70%;
+    height: 100%;
+}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.menu-button {
+    height: 100%;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    text-decoration: none;
+    color: #000000;
+}
+.menu-button:hover {
+    cursor: pointer;
+    background-color: #d64161;
+    color: #ffffff;
+}
+.menu-button:active {
+
+}
+.btn1 {
+    order: 1;
+}
+.btn2 {
+    order: 2;
+}
+.btn3 {
+    order: 3;
+}
+.btn4 {
+    order: 4;
+}
+.menu-mobile {
+    display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+.navbar {
+    flex-direction: column;
+}
+.logo-image {
+    order: 1;
+    height: 50;
+    width: 200px;
+}
+.menu {
+    display: none;
+}
+.menu-mobile-btn{
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+    width: 50%;
+    height: 100%;
+}
+.hamburger{
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 100%;
+    min-height: 100%;
+}
+.hamb-ico {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 40px;
+    width: 40px;
+}
+.dummyicon {
+    order: 1;
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    text-decoration: none;
+}
+.dummyicon:hover {
+    cursor: pointer;
+    color: #d64161;
+}
+
+.menu-mobile {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 0px;
+    max-width: 100%;
+    max-height: 600px;
+}
+.menu-button2 {
+    height: 40px;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    line-height: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+.menu-button2:hover {
+    cursor: pointer;
+    background-color: #d64161;
+    color: #ffffff;
+}
+
+}
+
+@media screen and (min-width: 800px) {
+#menu-mob {
+    display: none !important;
+}
+.dummyicon {
+    display: none;
+}
+}
+
+.ll {background: gainsboro;
+}
 </style>
 
-<nav class="navbar navbar-inverse">
-  <div class="">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
 
-	    <ul class="nav navbar-nav navbar-right">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#">Page 1</a></li>
-	      <li><a href="#">Page 2</a></li>
-	      <li><a href="#">Page 3</a></li>
-	    </ul>
+	 <div class="container-fluid ll mb-4">
+        <div class="navbar">
+            <div class="logo">
+                <div class="logo-image"><p class="dummyimage unselectable">LOGO HERE</p></div>
+            </div>
+            <div class="menu">
+                <div class="menu-button bt1 unselectable"><p>One</p></div>
+                <div class="menu-button bt2 unselectable"><p>Two</p></div>
+                <div class="menu-button bt3 unselectable"><p>Three</p></div>
+                <div class="menu-button bt4 unselectable"><p>Four</p></div>
+            </div>
+            <div class="menu-mobile-btn">
+                <div class="hamburger">
+                    <div class="hamb-ico"><p onclick="myFunction()" class="dummyicon unselectable">X</p></div>
+                </div>
+            </div>
+            <div id="menu-mob" class="menu-mobile">
+                <div class="menu-button2 bt1 unselectable"><p>One</p></div>
+                <div class="menu-button2 bt2 unselectable"><p>Two</p></div>
+                <div class="menu-button2 bt3 unselectable"><p>Three</p></div>
+                <div class="menu-button2 bt4 unselectable"><p>Four</p></div>
+            </div>
+        </div>
     </div>
-		<ul class="nav navbar-nav navbar-right">
-			<% if user_signed_in? %>
-			  Logged in as <strong><%= current_user.email %></strong>.
-			  <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> |
-			  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-			<% else %>
-			  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-			  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-			<% end %>
-    </ul>
-  </div>
-</nav>
 
 <div class="container">
-		<div class="jumbotron col-lg-12">
+		<div class="jumbotron col-lg-12 posts">
 			<% @posts.each do |post| %>
 				<%= post.id %>
 				<%= post.name %>
@@ -73,8 +273,8 @@
 	  <% end %>
 	</div>
 </div>
-
-<% session[:current_user_id] = current_user.id %>
+<%# byebug %>
+<%# session[:current_user_id] = current_user.id %>
 
 <%= render "footer/footer.html.erb" %>
 <div id="show_post"></div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts
+  resources :comments
  #  scope shallow_prefix: "sekret" do
 	#   resources :posts do 
 	#   	resources :comments, shallow: true
