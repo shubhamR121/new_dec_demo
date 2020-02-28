@@ -2,7 +2,7 @@
 
 <% @post.comments.each do |cmt| %>
 	<p class="show">
-		<%= cmt.name %>
+		<%= comment_name(cmt) %>
 		<% if cmt.id.present? %>
 			<%= link_to 'show', comment_path(cmt) %> 
 		<% end %>	

@@ -1,10 +1,10 @@
 require 'rails_helper'
-require 'spec_helper'
-require 'devise'
-require 'factories/post'
-require 'factories/comment'
-require 'factories/user'
-require 'rspec/rails'
+# require 'spec_helper'
+# require 'devise'
+# require 'factories/post'
+# require 'factories/comment'
+# require 'factories/user'
+# require 'rspec/rails'
 
 RSpec.feature "Posts", type: :feature do
 

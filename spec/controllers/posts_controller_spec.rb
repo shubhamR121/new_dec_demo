@@ -1,6 +1,6 @@
 require "rails_helper"
-require 'factories/post'
-require 'factories/user'
+# require 'factories/post'
+# require 'factories/user'
 
 
 RSpec.describe PostsController, type: :controller do
@@ -27,7 +27,7 @@ RSpec.describe PostsController, type: :controller do
       it "list all posts" do
         # byebug
         get :index
-        @posts = create_list(:post, 10)
+        @posts = FactoryBot.create_list(:post, 10)
         expect(response).to have_http_status(:success)
         # @posts.each do |post|
         #   page.should have_content(post.name)

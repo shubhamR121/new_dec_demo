@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 	# attr_reader :name
 	has_many :comments
-
+	accepts_nested_attributes_for :comments
 	validates_presence_of :name
 
 	before_create :capitalize_name, if: -> { check_name && check_length }
@@ -11,13 +11,14 @@ class Post < ApplicationRecord
 	end
 
 	def check_name
-		# byebug
+		print self.name
 		self.name == "post 1"
 	end
 
 	def check_length
 		# byebug
-		 self.name.split.count == 2
+		print self.name.split.count
+		self.name.split.count == 2
 	end
 
 	def check_object

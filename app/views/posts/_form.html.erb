@@ -1,0 +1,28 @@
+<%= form_with model: @post do |f| %>
+	<p>
+		<%= f.label :name %><br>
+		<%= f.select :name, options_for_select(Post.all.map { |post| [post.name]}),{}, {id: "test"} %>
+	</p>
+	<p>
+  	<%= f.label "title" %> <br />
+  	<%= f.text_field :title %> <br />
+	</p>
+
+	<p>
+  	<%= f.label "select" %> <br />
+  	<%#= f.select :id, options_from_collection_for_select(Post.all, :id, :name), prompt: "select" %> <br />
+	</p>
+
+	<p>
+		<%= f.fields_for :comments do |cmt| %>
+			<%= cmt.label :name %>
+			<%= cmt.text_field :name %>
+			</br>
+		<% end %>
+	</p>	
+
+	<%= f.submit %>
+	<%#= %>
+
+<% end %>
+

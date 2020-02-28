@@ -4,12 +4,17 @@ class PostsController < ApplicationController
 	def new
 		# debugger
 		@post = Post.new
+		
+	  4.times do
+    @comments = @post.comments.build
+    # 4.times { question.answers.build }
+  	end
 	end
 
 	def create
-		# debugger
 		@post = Post.new(post_params)
 		@post.save
+		SendNotificationsJob.perform_now(current_user)
 	end
 
 	def index
@@ -39,7 +44,6 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		# byebug
 		@post = Post.find(params[:id])
 		if @post.update(post_params)
 			redirect_to edit_post_path
@@ -57,6 +61,6 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:name, :title)
+		params.require(:post).permit(:name, :title, comments_attributes: [:id, :name])
 	end
 end

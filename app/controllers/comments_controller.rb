@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		# byebug
+		byebug
 		@comment = Comment.new(comments_params)
 		@comment.post_id = params[:comment][:post_id].to_i
 		if @comment.save!

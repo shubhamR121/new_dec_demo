@@ -1,9 +1,9 @@
 
 
 require "rails_helper"
-require "spec_helper"
-require 'factories/post'
-require 'factories/comment'
+# require "spec_helper"
+# require 'factories/post'
+# require 'factories/comment'
 
 
 
